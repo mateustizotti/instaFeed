@@ -42,7 +42,11 @@ function readURL(input, i, j) {
     }
 
     previewImage.addEventListener("click", function () {
-        previewImage.setAttribute("src", " ");
-        previewDefaultText.style.display = "block"
+        let ans = confirm("Do you wish to remove this photo?");
+        if (ans) {
+            previewImage.setAttribute("src", " ");
+            previewDefaultText.style.display = "block";
+            
+        }
     });
 }
