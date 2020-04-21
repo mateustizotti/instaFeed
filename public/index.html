@@ -6,65 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
+    <script rel="text/javascript" src="script.js" defer></script>
 </head>
 
 <title>Intagram Feed Simulator</title>
 
 <body id="body">
     <header class="title">
-    <h1>Instagram Feed Simulator</h1>
-    <br>
-    <h3>Insert Your Pictures</h3>
-    <br><br>
+        <h1>Instagram Feed Simulator</h1>
+        <br>
+        <h3>Insert Your Pictures</h3>
+        <br><br>
     </header>
-    <div id="photos"><div>  
+    <div id="photos"><div>
 </body>
-
-<script>
-        for (let i = 0; i <= 2; i++) {
-            for (let j = 0; j<=5; j++) {
-                var element = document.createElement("div");
-                element.setAttribute("class", "imagePreview");
-                element.setAttribute("id", `preview${i}${j}`);
-                document.getElementById("photos").appendChild(element);
-                var img = document.createElement("img");
-                img.setAttribute("src", "");
-                img.setAttribute("class", "image");
-                img.setAttribute("id", `image${i}${j}`);
-                document.getElementById("photos").querySelector(`#preview${i}${j}`).appendChild(img);
-                var span = document.createElement("span");
-                span.setAttribute("class", "defaultText");
-                span.setAttribute("id", `defaultText${i}${j}`);
-                document.getElementById("photos").querySelector(`#preview${i}${j}`).appendChild(span);
-                var input = document.createElement("input");
-                input.setAttribute("type", "file");
-                input.setAttribute("name", "inpFile");
-                input.setAttribute("id", `inpFile${i}${j}`);
-                input.setAttribute("multiple", "false");
-                input.setAttribute("onchange", `readURL(this, ${i}, ${j});`);
-                document.getElementById("photos").querySelector(`#preview${i}${j}`).querySelector(`#defaultText${i}${j}`).appendChild(input);
-            }
-        }
-
-        function readURL(input, i, j) {
-            var inpFile = document.getElementById(`inpFile${i}${j}`)
-            var previewContainer = document.getElementById(`preview${i}${j}`);
-            var previewImage = previewContainer.querySelector(".image");
-            var previewDefaultText = previewContainer.querySelector(".defaultText");
-            
-            if (input.files && input.files[0]) {
-                var reader = new FileReader();
-
-                previewDefaultText.style.display = "none";
-                previewImage.style.display = "block";
-                
-                reader.onload = function () {
-                    previewImage.setAttribute("src", this.result);
-                };
-                
-                reader.readAsDataURL(input.files[0]);
-            }
-        }
-    </script>
 
 </html>
