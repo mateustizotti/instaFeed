@@ -36,7 +36,6 @@ function readURL(input, i, j) {
 
         reader.onload = function () {
             previewImage.setAttribute("src", this.result);
-            console.log(i, j);
         };
 
         reader.readAsDataURL(input.files[0]);
